@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Slider</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
 
@@ -29,13 +28,13 @@
                 </div>
 
                 <div class="thumbs">
-                    <div class="prev"></div>
-                    <div class="next"></div>
-                    <div class="thumb active">
+                    <!-- Attacco l'evento al click -->
+                    <div class="prev" @click="prevClick"></div>
+                    <div class="next" @click="nextClick"></div>
+                    <div class="thumb active" >
                         <!-- Mi serve ciclare le thumb, quindi con un v-for 
-                            ciclo sull'indice delle immagini nell'array-->
-                        <img v-for="(movie, index) in slides.image" :key="index" 
-                        :src="slides[index].image" :alt="slides[index].title" />
+                            ciclo sugli oggetti, richiedendo l'image-->
+                        <img v-for="slide in slides" :src="slide.image" :alt="slide.title">
                     </div>
                 </div>
 
@@ -43,7 +42,8 @@
         </div>
 
     </div>
-
-    <script src="js/script.js"></script>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>

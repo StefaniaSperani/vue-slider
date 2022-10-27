@@ -41,5 +41,29 @@ createApp({
                     }
                 ]
         }
+    },
+    methods:{
+        //Creo la funzione che farà scorrere le slide indietro
+        prevClick(){
+            //activeIndex sarà -- perchè decremento
+            this.activeIndex--
+            //SE l'activeIndex sarà minore a zero
+            if(this.activeIndex < 0){
+                // l'activeIndex sarà uguale alla lunghezza
+                //di tutto l'array -1(perchè parto da 0), tornando
+                //di conseguenza indietro
+                this.activeIndex = this.slides.length -1;
+            }
+        },
+        //Ora creo la funzione per scorrere in avanti
+        nextClick(){
+            //quindi incremento il contatore
+            this.activeIndex++
+            //e SE l'activeIndex sarà maggiore della lunghezza dell'array -1
+            if(this.activeIndex > this.slides.length -1){
+                //allora torna a 0, quindi inizia di nuovo il giro
+                this.activeIndex = 0;
+            }
+        }
     }
 }).mount('#app')
