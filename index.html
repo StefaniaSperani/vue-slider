@@ -31,10 +31,8 @@
                     <!-- Attacco l'evento al click -->
                     <div class="prev" @click="prevClick"></div>
                     <div class="next" @click="nextClick"></div>
-                    <div class="thumb active" >
-                        <!-- Mi serve ciclare le thumb, quindi con un v-for 
-                            ciclo sugli oggetti, richiedendo l'image-->
-                        <img v-for="slide in slides" :src="slide.image" :alt="slide.title">
+                    <div v-for="(slide, index) in slides" :class=" index === activeIndex ? 'active' : ''" class="thumb">
+                        <img :src="slide.image" :alt="slide.title">
                     </div>
                 </div>
             </div>

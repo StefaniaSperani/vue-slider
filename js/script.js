@@ -47,7 +47,7 @@ createApp({
         //Creo la funzione che farà scorrere le slide indietro
         prevClick(){
             //activeIndex sarà -- perchè decremento
-            this.activeIndex--
+            this.activeIndex--;
             //SE l'activeIndex sarà minore a zero
             if(this.activeIndex < 0){
                 // l'activeIndex sarà uguale alla lunghezza
@@ -59,7 +59,7 @@ createApp({
         //Ora creo la funzione per scorrere in avanti
         nextClick(){
             //quindi incremento il contatore
-            this.activeIndex++
+            this.activeIndex++;
             //e SE l'activeIndex sarà maggiore della lunghezza dell'array -1
             if(this.activeIndex > this.slides.length -1){
                 //allora torna a 0, quindi inizia di nuovo il giro
@@ -83,7 +83,7 @@ createApp({
             this.autoscroll = null;
         }
     },
-    //monto l'autoplay, cos' partirà subito
+    //monto l'autoplay, così partirà subito
     mounted(){
         this.autoPlay();
     }
