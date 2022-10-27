@@ -12,7 +12,8 @@
     <div id="app">
 
         <div class="container" >
-            <div class="slider-wrapper" tabindex="0" @mouseover ="stopPlay" @mouseleave ="autoPlay">
+            <div class="slider-wrapper" tabindex="0" 
+            @mouseover ="stopPlay" @mouseleave ="autoPlay">
 
                 <div class="item">
                     <!-- Bindo l'indice attivo delle slide legato all'immagine, e lo stesso con l'alt e il titolo -->
@@ -31,7 +32,8 @@
                     <!-- Attacco l'evento al click -->
                     <div class="prev" @click="prevClick"></div>
                     <div class="next" @click="nextClick"></div>
-                    <div v-for="(slide, index) in slides" :class=" index === activeIndex ? 'active' : ''" class="thumb">
+                    <div v-for="(slide, index) in slides" :class=" index === activeIndex ? 'active' : ''" 
+                    class="thumb" @click="activeIndex = index">
                         <img :src="slide.image" :alt="slide.title">
                     </div>
                 </div>
