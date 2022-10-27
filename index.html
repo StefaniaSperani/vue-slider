@@ -12,7 +12,7 @@
     <div id="app">
 
         <div class="container" >
-            <div class="slider-wrapper" tabindex="0">
+            <div class="slider-wrapper" tabindex="0" @mouseover ="stopPlay" @mouseleave ="autoPlay">
 
                 <div class="item">
                     <!-- Bindo l'indice attivo delle slide legato all'immagine, e lo stesso con l'alt e il titolo -->
@@ -26,7 +26,7 @@
                         </p>
                     </div>
                 </div>
-
+                <!-- THUMBS -->
                 <div class="thumbs">
                     <!-- Attacco l'evento al click -->
                     <div class="prev" @click="prevClick"></div>
@@ -37,7 +37,6 @@
                         <img v-for="slide in slides" :src="slide.image" :alt="slide.title">
                     </div>
                 </div>
-
             </div>
         </div>
 

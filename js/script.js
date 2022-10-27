@@ -13,6 +13,7 @@ createApp({
     data(){
         return{
             activeIndex: 0,
+            autoscroll: null,
             slides: [
                 {
                     image: 'img/01.webp',
@@ -64,6 +65,26 @@ createApp({
                 //allora torna a 0, quindi inizia di nuovo il giro
                 this.activeIndex = 0;
             }
+        },
+        //creo l'autoplay
+        autoPlay(){
+            //ho creato una variabile in data che mi permetterà di pulire
+            //alla fine del giro di setInterval
+            this.autoscroll = setInterval(()=>{
+                //e gli passo la funzione che incrementa le immagini
+                this.nextClick();
+            }, 3000) //e do 3s di attesa tra una e l'altra
+        },
+        //ora creo lo stop
+        stopPlay(){
+            //uso il clearInterval per bloccare l'autoscroll
+            clearInterval(this.autoscroll);
+            //e ridefinisco a null  cos' svuota tutto
+            this.autoscroll = null;
         }
+    },
+    //monto l'autoplay, cos' partirà subito
+    mounted(){
+        this.autoPlay();
     }
 }).mount('#app')
